@@ -71,6 +71,7 @@ import static android.graphics.Color.valueOf;
 
 
 public class MainActivity extends AppCompatActivity {
+    public static final int RESULT_DELETE = 999;
     public static final int CONTEXT_MENU_ITEM_NEW = 1;
     public static final int CONTEXT_MENU_ITEM_UPDATE= CONTEXT_MENU_ITEM_NEW+1;
     public static final int CONTEXT_MENU_ITEM_DELETE = CONTEXT_MENU_ITEM_UPDATE+1;
@@ -169,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,EditTime.class);
                 intent.putExtra("edit_position",0);
                 intent.putExtra("color",colorr);
+                intent.putExtra("NEW",6);
                 startActivityForResult(intent, REQUEST_CODE_NEW_GOOD);
 
             }
@@ -250,6 +252,7 @@ private void InitData() {
                 Intent intent = new Intent(MainActivity.this,EditTime.class);
                 intent.putExtra("edit_position",menuInfo.position);
                 intent.putExtra("color",colorr);
+                intent.putExtra("NEW",6);
                 startActivityForResult(intent, REQUEST_CODE_NEW_GOOD);
                 break;
             }
@@ -266,6 +269,7 @@ private void InitData() {
                 intent.putExtra("good_price",good.getPrice());
                 intent.putExtra("good_name",good.getName());
                 intent.putExtra("color",colorr);
+                intent.putExtra("NEW",1);
 
                 startActivityForResult(intent, REQUEST_CODE_UPDATE_GOOD);
                 break;
@@ -337,6 +341,7 @@ private void InitData() {
 
 
 
+
                     Calendar calendar = Calendar.getInstance();
                     int day2 = calendar.get(Calendar.SECOND)%3;
                     switch (day2)
@@ -362,7 +367,10 @@ private void InitData() {
 
 
                 }
+
+
                 break;
+
             case REQUEST_CODE_UPDATE_GOOD:
                 if(resultCode==RESULT_OK)
                 {
@@ -389,12 +397,14 @@ private void InitData() {
 
                     Toast.makeText(this, "修改成功", Toast.LENGTH_SHORT).show();
                 }
-            case REQUEST_CODE_COUNT_TIME:
-            {
+                else if(resultCode==RESULT_DELETE) {
+                    int editPosition = getIntent().getIntExtra("edit_position", 0);
+                    listITime.remove(editPosition);
+                    ArrayAdapter.notifyDataSetChanged();
 
-            }
 
-            break;
+                }
+                break;
         }
     }
 

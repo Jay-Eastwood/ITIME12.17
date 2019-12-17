@@ -21,6 +21,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jnu.itime2.ui.ITime;
 
@@ -31,9 +32,9 @@ import java.util.Date;
 public class EditTime extends AppCompatActivity {
 
 
-
+    public static final int RESULT_DELETE = 999;
     private EditText editTextTitle, editTextPS,editTime;
-    private Button buttonOk, buttonCancel;
+    private Button buttonOk, buttonCancel,buttonDelete;
     private ImageButton buttoncreate;
     private TextView t3,t2;
     private int editPosition,color;
@@ -45,7 +46,6 @@ public class EditTime extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_time);
 
-
         t2= (TextView) findViewById(R.id.textView2);
         t3= (TextView) findViewById(R.id.textView3);
         editTime =  (EditText) findViewById(R.id.edit_text_time);
@@ -56,6 +56,7 @@ public class EditTime extends AppCompatActivity {
         buttonOk = (Button) findViewById(R.id.button_ok);
         buttoncreate = (ImageButton) findViewById(R.id.button_create);
         editlayout=(ConstraintLayout)findViewById(R.id.Editlayout);
+        buttonDelete=(Button) findViewById(R.id.button_delete);
 
         final String goodPrice = getIntent().getStringExtra("good_price");
         final String goodName = getIntent().getStringExtra("good_name");
@@ -63,6 +64,9 @@ public class EditTime extends AppCompatActivity {
         mmonth = getIntent().getIntExtra("good_month",0);
         mday = getIntent().getIntExtra("good_day",0);
         color=getIntent().getIntExtra("color",0);
+
+        final int New=getIntent().getIntExtra("NEW",0);
+
 
         ActionBar actionBar = getSupportActionBar();
         editlayout.setBackgroundColor(color);
@@ -72,6 +76,22 @@ public class EditTime extends AppCompatActivity {
         EditTime.this.editTime.setText(mday + "-" + mmonth + "-" + mday);
 
 
+
+        buttonDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(New==1) {
+                    Intent intent = new Intent();
+                    intent.putExtra("edit_position", editPosition);
+                    setResult(RESULT_DELETE, intent);
+                    EditTime.this.finish();
+                }
+                if(New==6) {
+                    Toast.makeText(EditTime.this, "删除成功！", Toast.LENGTH_SHORT).show();
+                    EditTime.this.finish();
+                }
+            }
+        });
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override

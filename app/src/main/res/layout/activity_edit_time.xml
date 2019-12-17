@@ -137,6 +137,27 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <Button
+        android:id="@+id/button_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="236dp"
+        android:text="确定"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_good_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:inputType="textEmailAddress"
+        android:text="备注"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/text_view_good_name"
+        app:layout_constraintTop_toBottomOf="@+id/text_view_good_name" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="212dp"
@@ -145,68 +166,28 @@
         android:text="生日,纪念日,节日,考试..."
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/edit_text_good_name"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/edit_text_good_name"
         app:layout_constraintTop_toTopOf="@+id/edit_text_good_name"
         tools:text="生日,纪念日,节日,考试..." />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="想说的话,目标,格言..."
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/edit_text_good_price"
-        app:layout_constraintTop_toTopOf="@+id/edit_text_good_price"
-        tools:text="想说的话,目标,格言..." />
-
-    <TextView
         android:id="@+id/text_view_good_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="8dp"
         android:text="标题"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/text_view_good_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="备注"
-        android:inputType="textEmailAddress"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="@+id/text_view_good_name"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_good_name" />
-
-    <Button
-        android:id="@+id/button_ok"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="240dp"
-        android:text="确定"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="96dp"
-        android:text="取消"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button_ok" />
-
     <EditText
         android:id="@+id/edit_text_good_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginRight="108dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="104dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintRight_toRightOf="parent"
@@ -216,23 +197,11 @@
         android:id="@+id/edit_text_good_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintRight_toRightOf="@+id/edit_text_good_name"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_good_name" />
-
-    <TextView
-        android:id="@+id/edit_text_data_tell"
-        android:layout_width="233dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="156dp"
-        android:text="点击下方设置计时日期"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_text_time"
@@ -241,7 +210,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_data_tell" />
 
@@ -250,10 +219,55 @@
         android:layout_width="71dp"
         android:layout_height="72dp"
         app:layout_constraintEnd_toStartOf="@+id/edit_text_time"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_text_data_tell"
         app:srcCompat="@android:drawable/ic_popup_reminder" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="212dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="8dp"
+        android:text="想说的话,目标,格言..."
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/edit_text_good_price"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/edit_text_good_price"
+        app:layout_constraintTop_toTopOf="@+id/edit_text_good_price"
+        tools:text="想说的话,目标,格言..." />
+
+    <TextView
+        android:id="@+id/edit_text_data_tell"
+        android:layout_width="233dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="152dp"
+        android:text="点击下方设置计时日期"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="92dp"
+        android:text="取消"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button_ok" />
+
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="删除闹钟"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
